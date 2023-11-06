@@ -1,0 +1,27 @@
+<%- include ../partials/header %>  
+<div class="container">
+
+  
+  <div class="row mt-4 mb-4">
+    <div class="col-md-5 mt-2 mr-2 ml-auto">
+      <img
+        src="<%=product.imagePath%>"
+        class="img-fluid product-img"
+        
+      />
+    </div>
+    <div class="col-md-5 mt-2 mb-2 ml-2 mr-auto text-dark">
+      <h2 style="color: black;"><%=product.title%></h2>
+      <hr/>
+      <p style="color: black;font-weight: 800;">$<%=product.price%></p>
+      <p style="color: black;"> <strong>Description:</strong> &nbsp;
+        <%=product.description%>
+      </p>
+      <p style="color: black;"><strong>Category:</strong>&nbsp;<%=product.category.title%></p>
+      <a href="/add-to-cart/<%=product._id%>" class="btn btn-dark mt-3 mb-3">
+        Add to Cart
+      </a>
+    </div>
+  </div>
+</div>
+<%- include ../partials/footer %>

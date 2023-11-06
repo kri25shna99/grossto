@@ -1,0 +1,28 @@
+<%- include ../partials/header %>
+
+    <div class="container">
+      <div class="row">
+        <div class="m-auto col-md-8"><br>
+          <center><h2 class="mb-4 mt-4">Please Enter Your Credentials!!!</h2></center><br>
+              <form action="/user/signin" method="POST">
+                <div class="form-group">
+                  Email:
+                  <input type="email" class="form-control" name="email" id="email" required />
+                </div>
+                <div class="form-group">
+                  Password:
+                  <input type="password" class="form-control" name="password" id="password" required />
+                </div>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <button style="width: 100%;" type="submit" class="btn btn-warning">
+                  Login
+                </button>
+              </form><br>
+              <button style="width: 100%;" type="submit" class="btn btn-warning">
+                <a href="/user/signup" style="text-decoration: none;color: black;">Not a member? SignUp</a>
+              </button>
+        </div>
+      </div>
+    </div>
+
+    <%- include ../partials/footer %>

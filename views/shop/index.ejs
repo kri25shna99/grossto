@@ -1,0 +1,39 @@
+<%- include ../partials/header %>
+
+
+    <div class="container-fluid">
+      <br>
+      <center>
+        <h1>Browse Products Here!!!</h1>
+      </center>
+      <br><br>
+      
+      <div class="row pl-4 pr-4">
+        <% products.forEach((product)=> { %>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 product-index-box">
+            <div class="single-product d-flex flex-column h-100">
+              <a class="title-link" href="/products/<%=product.category.slug%>/<%=product._id%>">
+                <img src="<%= product.imagePath %>" class="img-fluid" /></a>
+              <div>
+                <a href="/products/<%=product.category.slug%>/<%=product._id%>">
+                  <h5 class="mt-2 mb-2 title-link">
+                    <%= product.title %>
+                  </h5>
+                </a>
+                <div style="color: black;font-weight: 800;margin: 1px 0px 6px 0px;">$<%= product.price %>
+                </div>
+              </div>
+
+              <a href="/add-to-cart/<%=product._id%>" class="btn btn-block btn-dark mt-auto mb-2">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+      <br>
+      <div style="float: right;">
+        <%- include ../partials/pagination %>
+      </div>
+    </div>
+    <%- include ../partials/footer %>

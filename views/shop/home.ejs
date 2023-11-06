@@ -1,0 +1,142 @@
+<%- include ../partials/header %> 
+
+
+<div class="container">
+  <h3 class="text-center mb-2 mt-5 border1" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-weight: 800; color: black;">Grossto Categories</h3>
+  <div class="row mb-5">
+  </div>
+  <% if (categories) { %>
+  <div class="row text-center m-auto">
+    <% for(let i=0; i<7; i++){ %>
+    <div class="text-center col-lg-3 col-md-2 col-sm-12">
+      <a class="title-link" href="/products/<%=categories[i].slug%>">
+        <img src="images/img<%=i%>.jpg" alt="category" class="circle-img" />
+        <h4 class="mb-3 mt-3 "><%=categories[i].title%></h4>
+      </a>
+    </div>
+    <%} %>
+    <div class="col-lg-1 col-md-1 col-sm-12 text-center mx-auto">
+      <a href="/products">
+      <button class="btn btn-info" style="margin-top: 90px; color: black;">Browse Products</button>
+      </a>
+    </div>
+  </div>
+  <%}%>
+</div>
+
+
+<div class="container mb-4 mt-4">
+
+  <div
+    id="products-carousel"
+    class="carousel slide carousel-multi-item"
+    data-ride="carousel"
+  >
+  
+    <div class="controls-top mb-2">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center border1" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 800; color: black;">Recommended Products</h3>
+        </div>
+
+        <div class="col-12">
+          <div class="controls float-right hidden-xs">
+            <a
+              class="left fa fa-chevron-left btn btn"
+              href="#products-carousel"
+              data-slide="prev"
+            ></a
+            ><a
+              class="right fa fa-chevron-right btn"
+              href="#products-carousel"
+              data-slide="next"
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+    <div class="carousel-inner" role="listbox">
+      
+      <div class="carousel-item active">
+        <div class="row">
+          <% for(let i=0; i<3; i++) { %>
+          <div class="col-md-4 product-index-box">
+            <div class="single-product d-flex flex-column h-100">
+              <a
+                class="title-link"
+                href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
+              >
+                <img
+                  src="<%= products[i].imagePath %>"
+                  alt="Bag"
+                  class="img-fluid"
+              /></a>
+              <div class="product-info">
+                <a
+                  class="title-link"
+                  href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
+                >
+                  <h6 class="mt-4 mb-2"><%= products[i].title %></h6></a
+                >
+                <div class="price mt-3">$<%= products[i].price %></div>
+              </div>
+              
+              <a
+                href="/add-to-cart/<%=products[i]._id%>"
+                class="btn btn-block btn-dark mt-auto mb-2"
+              >
+                Add to Cart
+              </a>
+            </div>
+          </div>
+          <%}%>
+        </div>
+      </div>
+      
+
+      
+      <div class="carousel-item">
+        <div class="row">
+          <% for(let i=3; i<6; i++) { %>
+          <div class="col-md-4 product-index-box">
+            <div class="single-product d-flex flex-column h-100">
+              <a
+                class="title-link"
+                href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
+              >
+                <img
+                  src="<%= products[i].imagePath %>"
+                  class="img-fluid"
+              /></a>
+              <div class="product-info">
+                <a
+                  class="title-link"
+                  href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
+                >
+                  <h6 class="mt-4 mb-2"><%= products[i].title %></h6></a
+                >
+                <div class="price mt-3">₹<%= products[i].price %></div>
+              </div>
+              <a
+                href="/add-to-cart/<%=products[i]._id%>"
+                class="btn btn-dark mt-auto mb-2"
+              >
+                Add to Cart
+              </a>
+             
+            </div>
+          </div>
+          <%}%>
+        </div>
+      </div>
+     
+    </div>
+    
+  </div>
+  
+</div>
+
+<%- include ../partials/footer %>

@@ -1,0 +1,30 @@
+<%- include ../partials/header %> 
+<h1>Add your product here</h1>
+<form action="/addproduct" method="post"> 
+                      
+    <h1> Signup form </h1> 
+                      
+    <input class="box" type="text" name="productCode" id="productCode" 
+    placeholder="productCode"  required /><br> 
+    <input class="box" type="text" name="title" id="title" 
+    placeholder="title"  required /><br>  
+
+    <input class="box" type="text" name="imagePath" id="imagePath" 
+    placeholder="imagePath" required /><br> 
+                      
+    <input class="box" type="text" name="description" 
+    id="description" placeholder="description " required/><br> 
+                      
+    <input class="box" type="number" name="price" id="price"  
+    placeholder="price" required/><br> 
+
+    <input type="checkbox" name="available" id="available"  
+   required/><br> 
+    
+                <br>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" /> 
+    <input type="submit" id="submitDetails"  
+    name="submitDetails" value="Submit" /><br> 
+              
+    </form>
+<%- include ../partials/footer %>
